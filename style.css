@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.task__container {
+    background-color: #000;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+.task__title {
+    color: #999;
+    font-size: 20px;
+    font-family: 'Golos Text';
+    margin-bottom: 40px;
+}
+
+.task__text {
+    gap: 20px;
+    line-height: 1.2;
+    margin-bottom: 60px;
+    font-family: 'Golos Text';
+    font-size: 90px;
+    font-weight: 120;
+    text-transform: uppercase;
+}
+
+.task__image {
+    height: 80px;
+    width: auto;
+}
+
+.task__button {
+    position: relative;
+    background: #fff;
+    color: #000;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 18px 60px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+    z-index: 1;
+}
+
+.task__button::before,
+.task__button::after {
+    content: "";
+    position: absolute;
+    transform: translateY(-50%);
+    width: 600px;             /* длина линий по бокам */
+    height: 1px;              /* толщина линии */
+    background-color: #fff;   /* цвет линии */
+    pointer-events: none;     /* чтобы не мешали клику */
+    z-index: -1;              /* важно — линии за кнопкой */
+}
+
+.task__button::before {
+    right: 100%;
+    margin-right: 10px;
+    background-color: #fff;
+}
+
+.task__button::after {
+    left: 100%;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .task__text {
+        font-size: 40px;
+        gap: 8px;
+    }
+
+    .task__image img {
+        height: 50px;
+    }
+
+    .task__button::before,
+    .task__button::after {
+        width: 150px;
+    }
+}
+
