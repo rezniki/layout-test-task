@@ -37,6 +37,26 @@
     width: auto;
 }
 
+.task__button-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.task__button-wrapper::before,
+.task__button-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 70%;
+    height: 2px;
+    background-color: #fff;
+    z-index: 0;
+    pointer-events: none;
+}
+
 .task__button {
     position: relative;
     background: #fff;
@@ -50,45 +70,17 @@
     text-align: center;
     outline: none;
     clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
-    z-index: 1;
+    z-index: 1; 
+    transition: background 0.3s;
 }
 
-.task__button::before,
-.task__button::after {
-    content: "";
-    position: absolute;
-    transform: translateY(-50%);
-    width: 600px;             /* длина линий по бокам */
-    height: 1px;              /* толщина линии */
-    background-color: #fff;   /* цвет линии */
-    pointer-events: none;     /* чтобы не мешали клику */
-    z-index: -1;              /* важно — линии за кнопкой */
-}
-
-.task__button::before {
-    right: 100%;
-    margin-right: 10px;
-    background-color: #fff;
-}
-
-.task__button::after {
-    left: 100%;
-    margin-left: 10px;
+.task__button:hover {
+    background: #e6e6e6;
 }
 
 @media (max-width: 768px) {
-    .task__text {
-        font-size: 40px;
-        gap: 8px;
-    }
-
-    .task__image img {
-        height: 50px;
-    }
-
-    .task__button::before,
-    .task__button::after {
-        width: 150px;
+    .task__button {
+        font-size: 16px;
+        padding: 14px 40px;
     }
 }
-
